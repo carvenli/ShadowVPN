@@ -47,6 +47,23 @@ https://download.libsodium.org/libsodium/releases/
     make && sudo make install
 
 
+pacman -S iptables
+
+shadowvpn -c /etc/shadowvpn/client.conf start
+
+Sun Aug 23 18:21:45 2015 vpn.c:102 open: No such device
+Sun Aug 23 18:21:45 2015 can not open /dev/net/tun
+Sun Aug 23 18:21:45 2015 failed to create tun device
+
+
+pacman -S pptpclient
+
+ls -l /dev/net/tun
+find /lib/modules/ -iname 'tun.ko.gz'
+insmod /lib/modules/4.1.6-1-MANJARO/kernel/drivers/net/tun.ko.gz
+modprobe tun
+lsmod | grep tun
+
 #### Unix
 
 Currently Linux, FreeBSD and OS X are supported.
