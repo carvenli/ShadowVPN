@@ -27,6 +27,21 @@ Then
     apt-get update && apt-get install shadowvpn
     service shadowvpn restart
 
+#### Archlinux & Manjaro
+pacman -S binutils base-devel
+tar xf ShadowVPN-0.2.0.tar.gz
+cd ShadowVPN-0.2.0
+./autogen.sh
+./configure --enable-static --sysconfdir=/etc --with-libsodium --enable-debug
+configure: WARNING: no configuration information is in libsodium
+https://github.com/jedisct1/libsodium
+https://download.libsodium.org/libsodium/releases/
+wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.3.tar.gz
+tar xf libsodium-1.0.3.tar.gz
+rm -rf libsodium
+mv libsodium-1.0.3 libsodium
+make && make install
+
 #### Unix
 
 Currently Linux, FreeBSD and OS X are supported.
