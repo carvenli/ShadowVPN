@@ -42,6 +42,12 @@ rm -rf libsodium
 mv libsodium-1.0.3 libsodium
 make && make install
 
+    # For Debian-based Linux
+    sudo apt-get update
+    sudo apt-get install build-essential automake libtool git -y
+    ./configure --enable-static --sysconfdir=/etc
+    make && sudo make install
+
 #### Unix
 
 Currently Linux, FreeBSD and OS X are supported.
