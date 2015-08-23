@@ -28,25 +28,24 @@ Then
     service shadowvpn restart
 
 #### Archlinux & Manjaro
-pacman -S binutils base-devel
-tar xf ShadowVPN-0.2.0.tar.gz
-cd ShadowVPN-0.2.0
-./autogen.sh
-./configure --enable-static --sysconfdir=/etc --with-libsodium --enable-debug
-configure: WARNING: no configuration information is in libsodium
+
 https://github.com/jedisct1/libsodium
 https://download.libsodium.org/libsodium/releases/
-wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.3.tar.gz
-tar xf libsodium-1.0.3.tar.gz
-rm -rf libsodium
-mv libsodium-1.0.3 libsodium
-make && make install
 
-    # For Debian-based Linux
-    sudo apt-get update
-    sudo apt-get install build-essential automake libtool git -y
+    # For Arch-based Linux
+    pacman -S binutils base-devel
+    tar xf ShadowVPN-0.2.0.tar.gz
+    cd ShadowVPN-0.2.0
+    ./autogen.sh
     ./configure --enable-static --sysconfdir=/etc
+    configure: WARNING: no configuration information is in libsodium
+    wget https://download.libsodium.org/libsodium/releases/libsodium-1.0.3.tar.gz
+    tar xf libsodium-1.0.3.tar.gz
+    rm -rf libsodium
+    mv libsodium-1.0.3 libsodium
+    ./configure --enable-static --sysconfdir=/etc --with-libsodium --enable-debug
     make && sudo make install
+
 
 #### Unix
 
